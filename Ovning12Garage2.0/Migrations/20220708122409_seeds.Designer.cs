@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Ovning12Garage2._0.Data;
 
@@ -11,9 +12,10 @@ using Ovning12Garage2._0.Data;
 namespace Ovning12Garage2._0.Migrations
 {
     [DbContext(typeof(Ovning12Garage2_0Context))]
-    partial class Ovning12Garage2_0ContextModelSnapshot : ModelSnapshot
+    [Migration("20220708122409_seeds")]
+    partial class seeds
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
