@@ -1,4 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Ovning12Garage2._0.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<Ovning12Garage2_0Context>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Ovning12Garage2_0Context") ?? throw new InvalidOperationException("Connection string 'Ovning12Garage2_0Context' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
