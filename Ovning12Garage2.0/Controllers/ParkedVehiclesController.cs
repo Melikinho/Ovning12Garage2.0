@@ -45,16 +45,62 @@ namespace Ovning12Garage2._0.Controllers
             return View(parkedVehicle);
         }
 
+
         // GET: ParkedVehicles/Create
-        public IActionResult Create()
+       public IActionResult Create()
         {
             return View();
         }
 
+        public IActionResult SearchVehicle()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> SearchByReg(string LicenseNumber)
+        {
+            if (LicenseNumber == null || _context.ParkedVehicle == null)
+            {
+                return NotFound();
+            }
+            var parkedVehicle = await _context.ParkedVehicle
+                .FirstOrDefaultAsync(m => m.LicenseNumber.Equals(LicenseNumber));
+            return View("Delete", parkedVehicle);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("Id,VehicleType,Color,LicenseNumber,NumberOfWheels,TimeOfArrival,Brand,Model")] ParkedVehicle parkedVehicle)
+        {
+            if (ModelState.IsValid)
+            {
+				if (_context.ParkedVehicle?.FirstOrDefault(v => v.LicenseNumber == parkedVehicle.LicenseNumber.ToUpper()) != null)
+				{
+					ViewBag.LicenseNumberExists = true;
+					return View(parkedVehicle);
+				}
+				else if (parkedVehicle.LicenseNumber.Length < 6)
+				{
+					ViewBag.LicenseNumberTooShort = true;
+					return View(parkedVehicle);
+				}
+				else
+				{
+					parkedVehicle.LicenseNumber = parkedVehicle.LicenseNumber.ToUpper();
+					_context.Add(parkedVehicle);
+					await _context.SaveChangesAsync();
+					return RedirectToAction(nameof(Index));
+				}
+            }
+            return View(parkedVehicle);
+        }
+
+
+
         // POST: ParkedVehicles/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        /*[HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,VehicleType,Color,LicenseNumber,NumberOfWheels,TimeOfArrival,Brand,Model")] ParkedVehicle parkedVehicle)
         {
@@ -97,7 +143,7 @@ namespace Ovning12Garage2._0.Controllers
                 return NotFound();
             }
             return View(parkedVehicle);
-        }
+        }*/
 
         // POST: ParkedVehicles/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
