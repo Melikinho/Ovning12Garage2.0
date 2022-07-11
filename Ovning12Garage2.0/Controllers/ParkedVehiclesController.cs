@@ -60,7 +60,7 @@ namespace Ovning12Garage2._0.Controllers
         {
             if (ModelState.IsValid)
             {
-				if (_context.ParkedVehicle?.FirstOrDefault(v => v.LicenseNumber == parkedVehicle.LicenseNumber) != null)
+				if (_context.ParkedVehicle?.FirstOrDefault(v => v.LicenseNumber == parkedVehicle.LicenseNumber.ToUpper()) != null)
 				{
 					ViewBag.LicenseNumberExists = true;
 					return View(parkedVehicle);
@@ -72,6 +72,7 @@ namespace Ovning12Garage2._0.Controllers
 				}
 				else
 				{
+					parkedVehicle.LicenseNumber = parkedVehicle.LicenseNumber.ToUpper();
 					_context.Add(parkedVehicle);
 					await _context.SaveChangesAsync();
 					return RedirectToAction(nameof(Index));
