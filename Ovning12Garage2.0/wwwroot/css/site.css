@@ -16,3 +16,12 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.headertext-index {
+    padding: 60px;
+    text-align: center;
+    background-color: lightgrey;
+    color: black;
+    font-size: 30px;
+    font-family: Arial;
+}
