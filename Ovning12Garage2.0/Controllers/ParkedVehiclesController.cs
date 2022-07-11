@@ -60,9 +60,17 @@ namespace Ovning12Garage2._0.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(parkedVehicle);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+				if (_context.ParkedVehicle?.FirstOrDefault(v => v.LicenseNumber == parkedVehicle.LicenseNumber) != null)
+				{
+					ViewBag.LicenseNumberExists = true;
+					return View(parkedVehicle);
+				}
+				else
+				{
+					_context.Add(parkedVehicle);
+					await _context.SaveChangesAsync();
+					return RedirectToAction(nameof(Index));
+				}
             }
             return View(parkedVehicle);
         }
