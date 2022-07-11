@@ -76,6 +76,7 @@ namespace Ovning12Garage2._0.Controllers
 					parkedVehicle.TimeOfArrival = DateTime.Now;
 					_context.Add(parkedVehicle);
 					await _context.SaveChangesAsync();
+					TempData["Message"] = "The vehicle has been parked.";
 					return RedirectToAction(nameof(Index));
 				}
             }

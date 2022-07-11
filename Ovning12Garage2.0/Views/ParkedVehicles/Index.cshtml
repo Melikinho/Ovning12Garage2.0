@@ -4,7 +4,14 @@
     ViewData["Title"] = "Overview";
 }
 
-<h1>Index</h1>
+@if (TempData["Message"] != null)
+{
+	<div class="alert alert-success">
+	  <strong>@TempData["Message"]</strong>
+	</div>
+}
+
+<h1>Overview</h1>
 
 <p>
     <a asp-action="Create">Park Your Vehicle</a>
