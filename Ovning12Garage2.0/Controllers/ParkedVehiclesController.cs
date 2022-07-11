@@ -113,11 +113,13 @@ namespace Ovning12Garage2._0.Controllers
 
             if (ModelState.IsValid)
             {
+
                 try
                 {
                     _context.Update(parkedVehicle);
                     await _context.SaveChangesAsync();
-                }
+					TempData["Message"] = "The vehicle specifications have been updated.";
+				}
                 catch (DbUpdateConcurrencyException)
                 {
                     if (!ParkedVehicleExists(parkedVehicle.Id))
