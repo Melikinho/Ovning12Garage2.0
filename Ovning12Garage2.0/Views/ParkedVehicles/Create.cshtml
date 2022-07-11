@@ -1,4 +1,5 @@
-﻿@model Ovning12Garage2._0.Models.ParkedVehicle
+﻿@using Ovning12Garage2._0.Models.Entites
+@model Ovning12Garage2._0.Models.ParkedVehicle
 
 @{
     ViewData["Title"] = "Create";
@@ -14,18 +15,26 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="VehicleType" class="control-label"></label>
-                <select asp-for="VehicleType" class="form-control"></select>
+                <select asp-for="VehicleType" class="form-control" asp-items="@Html.GetEnumSelectList<VehicleType>()"></select>
                 <span asp-validation-for="VehicleType" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Color" class="control-label"></label>
-                <select asp-for="Color" class="form-control"></select>
+                <select asp-for="Color" class="form-control" asp-items="@Html.GetEnumSelectList<Color>()"></select>
                 <span asp-validation-for="Color" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="LicenseNumber" class="control-label"></label>
                 <input asp-for="LicenseNumber" class="form-control" />
                 <span asp-validation-for="LicenseNumber" class="text-danger"></span>
+				@if (ViewBag.LicenseNumberExists == true)
+				{
+					<span class="text-danger">A vehicle with the license number already exists in the garage.</span>
+				}
+				else if (ViewBag.LicenseNumberTooShort == true)
+				{
+					<span class="text-danger">The specified license number must be at least 6 characters long.</span>
+				}
             </div>
             <div class="form-group">
                 <label asp-for="NumberOfWheels" class="control-label"></label>
@@ -39,7 +48,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Brand" class="control-label"></label>
-                <input asp-for="Brand" class="form-control" />
+                <select asp-for="Brand" class="form-control" asp-items="@Html.GetEnumSelectList<VehicleModel>()"></select>
                 <span asp-validation-for="Brand" class="text-danger"></span>
             </div>
             <div class="form-group">
