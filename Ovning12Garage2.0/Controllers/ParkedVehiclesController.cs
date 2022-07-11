@@ -73,6 +73,7 @@ namespace Ovning12Garage2._0.Controllers
 				else
 				{
 					parkedVehicle.LicenseNumber = parkedVehicle.LicenseNumber.ToUpper();
+					parkedVehicle.TimeOfArrival = DateTime.Now;
 					_context.Add(parkedVehicle);
 					await _context.SaveChangesAsync();
 					return RedirectToAction(nameof(Index));
