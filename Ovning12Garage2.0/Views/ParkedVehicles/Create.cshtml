@@ -29,7 +29,11 @@
                 <span asp-validation-for="LicenseNumber" class="text-danger"></span>
 				@if (ViewBag.LicenseNumberExists == true)
 				{
-                <span class="text-danger">A vehicle with the license number already exists in the garage.</span>
+					<span class="text-danger">A vehicle with the license number already exists in the garage.</span>
+				}
+				else if (ViewBag.LicenseNumberTooShort == true)
+				{
+					<span class="text-danger">The specified license number must be at least 6 characters long.</span>
 				}
             </div>
             <div class="form-group">

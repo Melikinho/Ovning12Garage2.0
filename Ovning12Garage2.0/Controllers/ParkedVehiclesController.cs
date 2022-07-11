@@ -65,6 +65,11 @@ namespace Ovning12Garage2._0.Controllers
 					ViewBag.LicenseNumberExists = true;
 					return View(parkedVehicle);
 				}
+				else if (parkedVehicle.LicenseNumber.Length < 6)
+				{
+					ViewBag.LicenseNumberTooShort = true;
+					return View(parkedVehicle);
+				}
 				else
 				{
 					_context.Add(parkedVehicle);
