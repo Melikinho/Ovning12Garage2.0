@@ -1,4 +1,20 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿
+    var receipt = document.getElementById("myReceipt");
 
-// Write your JavaScript code.
+    var button = document.getElementById("myButton");
+
+        var span = document.getElementsByClassName("close")[0];
+
+        button.onclick = function() {
+            receipt.style.display = "block";
+        }
+
+            span.onclick = function() {
+                receipt.style.display = "none";
+            }
+
+            window.onclick = function(event) {
+                if (event.target == receipt) {
+                    receipt.style.display = "none";
+                }
+            }
