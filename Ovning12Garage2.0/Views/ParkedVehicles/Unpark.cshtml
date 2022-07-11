@@ -1,14 +1,12 @@
 ﻿@model Ovning12Garage2._0.Models.ParkedVehicle
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Unpark";
 }
+<script src="site.js"></script>
 
-<h1>Delete</h1>
-
-<h3>Are you sure you want to delete this?</h3>
+<h3>Are you sure you want to unpark this vehicle? </h3>
 <div>
-    <h4>ParkedVehicle</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -48,10 +46,17 @@
             @Html.DisplayFor(model => model.Brand)
         </dd>
     </dl>
-    
-    <form asp-action="Delete">
+
+    <script>
+function sayHello() {
+
+}
+
+    </script>
+         <form asp-action="Unpark">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <input type="submit" value="Unpark" class="btn btn-danger" onclick="sayHello();"/> |
         <a asp-action="Index">Back to List</a>
     </form>
+
 </div>

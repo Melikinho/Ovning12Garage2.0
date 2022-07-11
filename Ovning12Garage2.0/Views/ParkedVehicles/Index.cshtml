@@ -9,7 +9,7 @@
     <a asp-action="Create">Lista på parkerade fordon</a>
 </p>-->
 <div class="p-5">
-<table class="table">
+<table class="table table-striped">
     <thead>
         <tr>
             <th>
@@ -57,7 +57,7 @@
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Unpark" asp-route-id="@item.Id">Unpark</a>
             </td>
         </tr>
 }

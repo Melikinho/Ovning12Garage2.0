@@ -106,9 +106,24 @@ namespace Ovning12Garage2._0.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(parkedVehicle);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+				if (_context.ParkedVehicle?.FirstOrDefault(v => v.LicenseNumber == parkedVehicle.LicenseNumber.ToUpper()) != null)
+				{
+					ViewBag.LicenseNumberExists = true;
+					return View(parkedVehicle);
+				}
+				else if (parkedVehicle.LicenseNumber.Length < 6)
+				{
+					ViewBag.LicenseNumberTooShort = true;
+					return View(parkedVehicle);
+				}
+				else
+				{
+					parkedVehicle.LicenseNumber = parkedVehicle.LicenseNumber.ToUpper();
+					parkedVehicle.TimeOfArrival = DateTime.Now;
+					_context.Add(parkedVehicle);
+					await _context.SaveChangesAsync();
+					return RedirectToAction(nameof(Index));
+				}
             }
             return View(parkedVehicle);
         }
@@ -165,7 +180,7 @@ namespace Ovning12Garage2._0.Controllers
         }
 
         // GET: ParkedVehicles/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Unpark(int? id)
         {
             if (id == null || _context.ParkedVehicle == null)
             {
@@ -182,8 +197,8 @@ namespace Ovning12Garage2._0.Controllers
             return View(parkedVehicle);
         }
 
-        // POST: ParkedVehicles/Delete/5
-        [HttpPost, ActionName("Delete")]
+        // POST: ParkedVehicles/Unpark/5
+        [HttpPost, ActionName("Unpark")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
