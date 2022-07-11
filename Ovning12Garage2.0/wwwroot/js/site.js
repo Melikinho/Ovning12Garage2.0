@@ -1,12 +1,18 @@
 ﻿
     var receipt = document.getElementById("myReceipt");
 
-    var button = document.getElementById("myButton");
+var button = document.getElementById("myButton");
 
-        var span = document.getElementsByClassName("close")[0];
+var span = document.getElementsByClassName("close")[0];
+
+function openReceipt() {
+    get
+}
+
 
         button.onclick = function() {
             receipt.style.display = "block";
+            button.addEventListener("click", )
         }
 
             span.onclick = function() {

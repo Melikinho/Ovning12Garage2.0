@@ -133,7 +133,7 @@ namespace Ovning12Garage2._0.Controllers
         }
 
         // GET: ParkedVehicles/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Unpark(int? id)
         {
             if (id == null || _context.ParkedVehicle == null)
             {
@@ -150,8 +150,8 @@ namespace Ovning12Garage2._0.Controllers
             return View(parkedVehicle);
         }
 
-        // POST: ParkedVehicles/Delete/5
-        [HttpPost, ActionName("Delete")]
+        // POST: ParkedVehicles/Unpark/5
+        [HttpPost, ActionName("Unpark")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {

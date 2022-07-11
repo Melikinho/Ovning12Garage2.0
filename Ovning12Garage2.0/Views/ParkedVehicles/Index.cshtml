@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<Ovning12Garage2._0.Models.ParkedVehicle>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Overview";
 }
 
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Park Your Vehicle</a>
 </p>
 <table class="table">
     <thead>
@@ -57,7 +57,7 @@
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Unpark" asp-route-id="@item.Id">Unpark</a>
             </td>
         </tr>
 }
