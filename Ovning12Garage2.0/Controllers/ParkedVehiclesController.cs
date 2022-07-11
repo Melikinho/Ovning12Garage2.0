@@ -25,6 +25,21 @@ namespace Ovning12Garage2._0.Controllers
               return _context.ParkedVehicle != null ? 
                           View(await _context.ParkedVehicle.ToListAsync()) :
                           Problem("Entity set 'Ovning12Garage2_0Context.ParkedVehicle'  is null.");
+
+            //*************************************************************
+
+            public async Task<IActionResult> Index(string searchString)
+            {
+                var movies = from m in _context.Movie
+                             select m;
+
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    movies = movies.Where(s => s.Title!.Contains(searchString));
+                }
+
+                return View(await movies.ToListAsync());
+            }
         }
 
         // GET: ParkedVehicles/Details/5
