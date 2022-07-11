@@ -17,6 +17,16 @@ namespace Ovning12Garage2._0.Controllers
         {
             return View();
         }
+        
+        public IActionResult Start()
+        {
+            return View();
+        }
+        
+        public IActionResult SearchVehicle()
+        {
+            return View();
+        }
 
         public IActionResult Privacy()
         {

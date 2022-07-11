@@ -12,8 +12,8 @@ using Ovning12Garage2._0.Data;
 namespace Ovning12Garage2._0.Migrations
 {
     [DbContext(typeof(Ovning12Garage2_0Context))]
-    [Migration("20220708122409_seeds")]
-    partial class seeds
+    [Migration("20220709153802_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
