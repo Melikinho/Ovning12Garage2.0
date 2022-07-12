@@ -136,7 +136,7 @@ namespace Ovning12Garage2._0.Controllers
                 {
                     _context.Update(parkedVehicle);
                     await _context.SaveChangesAsync();
-					TempData["Message"] = "The vehicle specifications have been updated.";
+					TempData["Message"] = "The vehicle data has been updated.";
 				}
                 catch (DbUpdateConcurrencyException)
                 {
@@ -149,7 +149,6 @@ namespace Ovning12Garage2._0.Controllers
                         throw;
                     }
                 }
-				TempData["Message"] = "The vehicle data has been updated.";
 				return RedirectToAction(nameof(Index));
             }
             return View(parkedVehicle);
