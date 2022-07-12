@@ -11,6 +11,7 @@ namespace Ovning12Garage2._0.Models
         [Required]
         public VehicleModel Brand { get; set; }
 
+        [StringLength(6)]
         [Required]
         public string LicenseNumber { get; set; } = "";
         public int NumberOfWheels { get; set; }

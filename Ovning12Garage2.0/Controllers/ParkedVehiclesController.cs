@@ -217,6 +217,13 @@ namespace Ovning12Garage2._0.Controllers
             }
             
             await _context.SaveChangesAsync();
+
+           //Skapa en viewmodel
+           //Ta data från parkedVehicle
+           //Sätt datan på viewmodellen
+           //returnera en ny view med din viewmodel
+           //klart
+
             return RedirectToAction(nameof(Index));
         }
 
