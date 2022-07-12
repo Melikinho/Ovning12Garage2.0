@@ -64,8 +64,8 @@ namespace Ovning12Garage2._0.Controllers
                 return NotFound();
             }
             var parkedVehicle = await _context.ParkedVehicle
-                .FirstOrDefaultAsync(m => m.LicenseNumber.Equals(LicenseNumber));
-            return View("Delete", parkedVehicle);
+                .FirstOrDefaultAsync(m => m.LicenseNumber.Equals(LicenseNumber.ToUpper()));
+            return View("Unpark", parkedVehicle);
         }
 
         [HttpPost]
@@ -126,7 +126,7 @@ namespace Ovning12Garage2._0.Controllers
 				}
             }
             return View(parkedVehicle);
-        }
+        }*/
 
         // GET: ParkedVehicles/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -142,7 +142,7 @@ namespace Ovning12Garage2._0.Controllers
                 return NotFound();
             }
             return View(parkedVehicle);
-        }*/
+        }
 
         // POST: ParkedVehicles/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
