@@ -98,37 +98,7 @@ namespace Ovning12Garage2._0.Controllers
 
 
 
-		// POST: ParkedVehicles/Create
-		// To protect from overposting attacks, enable the specific properties you want to bind to.
-		// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-		/*[HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,VehicleType,Color,LicenseNumber,NumberOfWheels,TimeOfArrival,Brand,Model")] ParkedVehicle parkedVehicle)
-        {
-            if (ModelState.IsValid)
-            {
-				if (_context.ParkedVehicle?.FirstOrDefault(v => v.LicenseNumber == parkedVehicle.LicenseNumber.ToUpper()) != null)
-				{
-					ViewBag.LicenseNumberExists = true;
-					return View(parkedVehicle);
-				}
-				else if (parkedVehicle.LicenseNumber.Length < 6)
-				{
-					ViewBag.LicenseNumberTooShort = true;
-					return View(parkedVehicle);
-				}
-				else
-				{
-					parkedVehicle.LicenseNumber = parkedVehicle.LicenseNumber.ToUpper();
-					parkedVehicle.TimeOfArrival = DateTime.Now;
-					_context.Add(parkedVehicle);
-					await _context.SaveChangesAsync();
-					TempData["Message"] = "The vehicle has been parked.";
-					return RedirectToAction(nameof(Index));
-				}
-            }
-            return View(parkedVehicle);
-        }*/
+		
 
 		// GET: ParkedVehicles/Edit/5
 		public async Task<IActionResult> Edit(int? id)
