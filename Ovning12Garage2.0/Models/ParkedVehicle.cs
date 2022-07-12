@@ -8,6 +8,7 @@ namespace Ovning12Garage2._0.Models
         public int Id { get; set; }
         [Required]
         public VehicleType VehicleType { get; set; }
+        [Required]
         public Color Color { get; set; }
         [Required]
         public VehicleModel Brand { get; set; }
