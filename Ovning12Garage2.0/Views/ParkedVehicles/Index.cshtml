@@ -3,12 +3,19 @@
 @{
     ViewData["Title"] = "Parkerade fordon";
 }
-<div class="container">
-<h1 class="display-4 text-center">Lista på parkerade fordon</h1>
-<!--<p>
-    <a asp-action="Create">Lista på parkerade fordon</a>
-</p>-->
-<div class="p-5">
+
+@if (TempData["Message"] != null)
+{
+	<div class="alert alert-success">
+	  <strong>@TempData["Message"]</strong>
+	</div>
+}
+
+<h1>Lista på parkerade fordon</h1>
+
+<p>
+    <a asp-action="Create">Park Your Vehicle</a>
+</p>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -63,5 +70,3 @@
 }
     </tbody>
 </table>
-</div>
-</div>

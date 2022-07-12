@@ -1,22 +1,19 @@
-﻿@model IEnumerable<Ovning12Garage2._0.Models.ParkedVehicle>
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="site.css">
+﻿@model Ovning12Garage2._0.Models.ParkedVehicle
+@{
+    ViewData["Title"] = "Unpark";
+}
+
 <script src="site.js"></script>
-<style>
+<link rel="stylesheet" href="site.css">
 
 body {font-family: Arial, Helvetica, sans-serif;}
-</style>
-</head>
 <body>
 
 <h2>Receipt for checkout - Parking Application</h2>
 
 <button id="myButton">Pay for parking</button>
 
-<div id="myReceipt" class="Receipt">
+<div id="myReceipt" class="Receipt" aria-labelledby="ReceiptQuery">
   <div class="receipt-content">
     <span class="close">&times;</span>
     <div class="header-receipt">
@@ -39,7 +36,4 @@ body {font-family: Arial, Helvetica, sans-serif;}
           </div>
 </div>
 </div>
-<script>
-</script>
 </body>
-</html>

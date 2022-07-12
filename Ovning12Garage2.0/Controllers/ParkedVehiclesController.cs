@@ -47,10 +47,10 @@ namespace Ovning12Garage2._0.Controllers
 
 
         // GET: ParkedVehicles/Create
-       public IActionResult Create()
-        {
-            return View();
-        }
+		public IActionResult Create()
+		{
+			return View();
+		}
 
         public IActionResult SearchVehicle()
         {
@@ -81,11 +81,12 @@ namespace Ovning12Garage2._0.Controllers
 				}
 				else if (parkedVehicle.LicenseNumber.Length < 6)
 				{
-					ViewBag.LicenseNumberTooShort = true;
+					ModelState.AddModelError("LicensNumberTooShortError", "The specified license number must be at least 6 characters long.");
 					return View(parkedVehicle);
 				}
 				else
 				{
+					parkedVehicle.TimeOfArrival = DateTime.Now;
 					parkedVehicle.LicenseNumber = parkedVehicle.LicenseNumber.ToUpper();
 					_context.Add(parkedVehicle);
 					await _context.SaveChangesAsync();
@@ -97,10 +98,10 @@ namespace Ovning12Garage2._0.Controllers
 
 
 
-        // POST: ParkedVehicles/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        /*[HttpPost]
+		// POST: ParkedVehicles/Create
+		// To protect from overposting attacks, enable the specific properties you want to bind to.
+		// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+		/*[HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,VehicleType,Color,LicenseNumber,NumberOfWheels,TimeOfArrival,Brand,Model")] ParkedVehicle parkedVehicle)
         {
@@ -122,14 +123,15 @@ namespace Ovning12Garage2._0.Controllers
 					parkedVehicle.TimeOfArrival = DateTime.Now;
 					_context.Add(parkedVehicle);
 					await _context.SaveChangesAsync();
+					TempData["Message"] = "The vehicle has been parked.";
 					return RedirectToAction(nameof(Index));
 				}
             }
             return View(parkedVehicle);
         }*/
 
-        // GET: ParkedVehicles/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+		// GET: ParkedVehicles/Edit/5
+		public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.ParkedVehicle == null)
             {
@@ -158,11 +160,13 @@ namespace Ovning12Garage2._0.Controllers
 
             if (ModelState.IsValid)
             {
+
                 try
                 {
                     _context.Update(parkedVehicle);
                     await _context.SaveChangesAsync();
-                }
+					TempData["Message"] = "The vehicle specifications have been updated.";
+				}
                 catch (DbUpdateConcurrencyException)
                 {
                     if (!ParkedVehicleExists(parkedVehicle.Id))
@@ -213,6 +217,13 @@ namespace Ovning12Garage2._0.Controllers
             }
             
             await _context.SaveChangesAsync();
+
+           //Skapa en viewmodel
+           //Ta data från parkedVehicle
+           //Sätt datan på viewmodellen
+           //returnera en ny view med din viewmodel
+           //klart
+
             return RedirectToAction(nameof(Index));
         }
 
