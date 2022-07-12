@@ -182,23 +182,31 @@ namespace Ovning12Garage2._0.Controllers
                 return Problem("Entity set 'Ovning12Garage2_0Context.ParkedVehicle'  is null.");
             }
             var parkedVehicle = await _context.ParkedVehicle.FindAsync(id);
-            if (parkedVehicle != null)
+
+			ViewModel vm = new();
+			vm.TimeOfArrival = parkedVehicle.TimeOfArrival;
+			vm.TimeOfDeparture = DateTime.Now;
+			vm.LicenseNumber = parkedVehicle.LicenseNumber;
+
+			if (parkedVehicle != null)
             {
                 _context.ParkedVehicle.Remove(parkedVehicle);
             }
             
             await _context.SaveChangesAsync();
 
-           //Skapa en viewmodel
-           //Ta data från parkedVehicle
-           //Sätt datan på viewmodellen
-           //returnera en ny view med din viewmodel
-           //klart
+			return View("Receipt", vm);
 
-            return RedirectToAction(nameof(Index));
-        }
+			//Skapa en viewmodel
+			//Ta data från parkedVehicle
+			//Sätt datan på viewmodellen
+			//returnera en ny view med din viewmodel
+			//klart
 
-        private bool ParkedVehicleExists(int id)
+			//return RedirectToAction(nameof(Index));
+		}
+
+		private bool ParkedVehicleExists(int id)
         {
           return (_context.ParkedVehicle?.Any(e => e.Id == id)).GetValueOrDefault();
         }
