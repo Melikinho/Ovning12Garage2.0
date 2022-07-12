@@ -47,10 +47,10 @@ namespace Ovning12Garage2._0.Controllers
 
 
         // GET: ParkedVehicles/Create
-       public IActionResult Create()
-        {
-            return View();
-        }
+		public IActionResult Create()
+		{
+			return View();
+		}
 
         public IActionResult SearchVehicle()
         {
@@ -81,11 +81,12 @@ namespace Ovning12Garage2._0.Controllers
 				}
 				else if (parkedVehicle.LicenseNumber.Length < 6)
 				{
-					ViewBag.LicenseNumberTooShort = true;
+					ModelState.AddModelError("LicensNumberTooShortError", "The specified license number must be at least 6 characters long.");
 					return View(parkedVehicle);
 				}
 				else
 				{
+					parkedVehicle.TimeOfArrival = DateTime.Now;
 					parkedVehicle.LicenseNumber = parkedVehicle.LicenseNumber.ToUpper();
 					_context.Add(parkedVehicle);
 					await _context.SaveChangesAsync();
@@ -97,10 +98,10 @@ namespace Ovning12Garage2._0.Controllers
 
 
 
-        // POST: ParkedVehicles/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        /*[HttpPost]
+		// POST: ParkedVehicles/Create
+		// To protect from overposting attacks, enable the specific properties you want to bind to.
+		// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+		/*[HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,VehicleType,Color,LicenseNumber,NumberOfWheels,TimeOfArrival,Brand,Model")] ParkedVehicle parkedVehicle)
         {
@@ -127,10 +128,10 @@ namespace Ovning12Garage2._0.Controllers
 				}
             }
             return View(parkedVehicle);
-        }
+        }*/
 
-        // GET: ParkedVehicles/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+		// GET: ParkedVehicles/Edit/5
+		public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.ParkedVehicle == null)
             {
@@ -143,7 +144,7 @@ namespace Ovning12Garage2._0.Controllers
                 return NotFound();
             }
             return View(parkedVehicle);
-        }*/
+        }
 
         // POST: ParkedVehicles/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
