@@ -45,15 +45,11 @@
             @Html.DisplayFor(model => model.Brand)
         </dd>
     </dl>
-       @*  <form asp-action="Unpark">
+         <form asp-action="Unpark">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" onclick="startPopUp();" value="Unpark" class="btn btn-danger"/> |
-        <a asp-action="Index">Back to List</a>*@  
-        <form>
-        <input type="hidden" asp-for="Id" />
-        <input id="unpark" type="submit" value="Unpark" class="btn btn-danger"/> |
+        <input type="submit" value="Unpark" class="btn btn-danger"/> |
         <a asp-action="Index">Back to List</a>
-    </form>
+        </form>
 </div>
 
             @section Scripts {
