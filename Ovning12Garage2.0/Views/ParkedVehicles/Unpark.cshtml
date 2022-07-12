@@ -1,5 +1,4 @@
 ﻿@model Ovning12Garage2._0.Models.ParkedVehicle
-
 @{
     ViewData["Title"] = "Unpark";
 }
@@ -46,17 +45,17 @@
             @Html.DisplayFor(model => model.Brand)
         </dd>
     </dl>
-
-    <script>
-function sayHello() {
-
-}
-
-    </script>
-         <form asp-action="Unpark">
+       @*  <form asp-action="Unpark">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Unpark" class="btn btn-danger" onclick="sayHello();"/> |
+        <input type="submit" onclick="startPopUp();" value="Unpark" class="btn btn-danger"/> |
+        <a asp-action="Index">Back to List</a>*@  
+        <form>
+        <input type="hidden" asp-for="Id" />
+        <input id="unpark" type="submit" value="Unpark" class="btn btn-danger"/> |
         <a asp-action="Index">Back to List</a>
     </form>
-
 </div>
+
+            @section Scripts {
+    @{await Html.RenderPartialAsync("_UnparkScriptsPartial");}
+}

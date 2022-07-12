@@ -1,26 +1,37 @@
 ﻿
-    var receipt = document.getElementById("myReceipt");
-
-var button = document.getElementById("myButton");
-
-var span = document.getElementsByClassName("close")[0];
-
-function openReceipt() {
-    get
-}
 
 
-        button.onclick = function() {
-            receipt.style.display = "block";
-            button.addEventListener("click", )
-        }
+//var button = document.getElementById("myButton");
 
-            span.onclick = function() {
-                receipt.style.display = "none";
-            }
+//var myReceipt = document.getElementById('myReceipt')
 
-            window.onclick = function(event) {
-                if (event.target == receipt) {
-                    receipt.style.display = "none";
-                }
-            }
+//var span = document.getElementsByClassName("close")[0];
+
+
+//var Receipt = document.getElementById('Receipt')
+//var myInput = document.getElementById('myInput')
+
+//myReceipt.addEventListener('shown.bs.modal', function () {
+//    myInput.focus()
+//})
+//function myReceipt() {
+//    document.querySelector('#myReceipt').ariaHidden = false;
+//}
+
+//        button.onclick = function() {
+//            receipt.style.display = "block";
+//        }
+
+//            span.onclick = function() {
+//                receipt.style.display = "none";
+//            }
+
+//            window.onclick = function(event) {
+//                if (event.target == receipt) {
+//                    receipt.style.display = "none";
+//                }
+//            }
+
+//function startPopUp() {    //Behövs AriaHidden?!?!
+//    document.querySelector('#Receipt').ariaHidden = false;
+//    }
