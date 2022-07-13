@@ -15,47 +15,12 @@
 }
 <div class="container">
     <div class="row">
-    <div class="col-6  p-5"><h3>Parked Vehicle: @Html.DisplayFor(model => model.LicenseNumber)<br />Time of Arrival: @Html.DisplayFor(model => model.TimeOfArrival)</h3></div>
+    <div class="col-6  p-5"><h3>Parked Vehicle: @Html.DisplayFor(model => model.LicenseNumber)<br>
+        Time of Arrival: @Html.DisplayFor(model => model.TimeOfArrival)<br></h3></div>
      </div>
      <div class="row border border-1">
         <div class="col-4 text-primary p-5"><h3>Timme: @parkHours</h3></div>
         <div class="col-4 text-primary text-start p-5"><h3>Minuter: @parkMinutes</h3></div>
-        <div class="col-4 text-primary text-start p-5"><H3>Pris: @price</H3></div>
+        <div class="col-4 text-primary text-start p-5"><H3>Pris: @price Kr</H3></div>
      </div>
    </div>
-
-
-@*<script src="site.js"></script>
-<link rel="stylesheet" href="site.css">
-
-body {font-family: Arial, Helvetica, sans-serif;}
-<body>
-
-<h2>Receipt for checkout - Parking Application</h2>
-
-<button id="myButton">Pay for parking</button>
-
-<div id="myReceipt" class="Receipt" aria-labelledby="ReceiptQuery">
-  <div class="receipt-content">
-    <span class="close">&times;</span>
-    <div class="header-receipt">
-        <h3>Receipt</h3>
-    </div>
-    <div class="column1">
-    <div class="TextColumn1">
-    <h4>Parked Vehicle: @Html.DisplayFor(model => model.LicenseNumber) </h4>
-                
-      </div>
-      <div class="TextColumn2">
-            <h4>Time of Arrival: @Html.DisplayFor(model => model.TimeOfArrival)</h4>
-      </div>
-      <div class="TextColumn3">
-            <h4>Time of Departure: </h4>
-      </div>
-      <div class="TextColumn4">
-            <h4>Price per hour: 10 SEK</h4>
-      </div>
-          </div>
-</div>
-</div>
-</body>*@

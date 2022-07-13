@@ -90,7 +90,7 @@ namespace Ovning12Garage2._0.Controllers
 					parkedVehicle.LicenseNumber = parkedVehicle.LicenseNumber.ToUpper();
 					_context.Add(parkedVehicle);
 					await _context.SaveChangesAsync();
-					TempData["Message"] = "The vehicle has been parked.";
+					TempData["Message"] = "The vehicle "+ parkedVehicle.LicenseNumber.ToUpper()+" has been parked.";
 					return RedirectToAction(nameof(Index));
 				}
             }
