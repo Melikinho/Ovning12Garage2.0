@@ -1,37 +1,20 @@
 ﻿
 
 
-//var button = document.getElementById("myButton");
+var button = document.getElementById("myButton");
+var Receipt = document.getElementById('myReceipt')
+var span = document.getElementsByClassName("close")[0];
 
-//var myReceipt = document.getElementById('myReceipt')
+        button.onclick = function() {
+            myReceipt.style.display = "block";
+        }
 
-//var span = document.getElementsByClassName("close")[0];
+            span.onclick = function() {
+                myReceipt.style.display = "none";
+            }
 
-
-//var Receipt = document.getElementById('Receipt')
-//var myInput = document.getElementById('myInput')
-
-//myReceipt.addEventListener('shown.bs.modal', function () {
-//    myInput.focus()
-//})
-//function myReceipt() {
-//    document.querySelector('#myReceipt').ariaHidden = false;
-//}
-
-//        button.onclick = function() {
-//            receipt.style.display = "block";
-//        }
-
-//            span.onclick = function() {
-//                receipt.style.display = "none";
-//            }
-
-//            window.onclick = function(event) {
-//                if (event.target == receipt) {
-//                    receipt.style.display = "none";
-//                }
-//            }
-
-//function startPopUp() {    //Behövs AriaHidden?!?!
-//    document.querySelector('#Receipt').ariaHidden = false;
-//    }
+        window.onclick = function (event) {
+            if (event.target == myReceipt) {
+                myReceipt.style.display = "none";
+                    }
+                }
