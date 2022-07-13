@@ -2,8 +2,30 @@
 @{
     ViewData["Title"] = "Unpark";
 }
+ 
+@{
+    DateTime arrivalTime = Model.TimeOfArrival;
+    int pricePerHour = Model.PricePerHour;
+    TimeSpan mindate = DateTime.Now.Subtract(arrivalTime);
+    int parkHours=mindate.Hours;
+    int parkMinutes = mindate.Minutes;
+    int total = parkHours * 60 + parkMinutes;
+    int price = total *  pricePerHour/ 60;
 
-<script src="site.js"></script>
+}
+<div class="container">
+    <div class="row">
+    <div class="col-6  p-5"><h3>Parked Vehicle: @Html.DisplayFor(model => model.LicenseNumber)<br />Time of Arrival: @Html.DisplayFor(model => model.TimeOfArrival)</h3></div>
+     </div>
+     <div class="row border border-1">
+        <div class="col-4 text-primary p-5"><h3>Timme: @parkHours</h3></div>
+        <div class="col-4 text-primary text-start p-5"><h3>Minuter: @parkMinutes</h3></div>
+        <div class="col-4 text-primary text-start p-5"><H3>Pris: @price</H3></div>
+     </div>
+   </div>
+
+
+@*<script src="site.js"></script>
 <link rel="stylesheet" href="site.css">
 
 body {font-family: Arial, Helvetica, sans-serif;}
@@ -36,4 +58,4 @@ body {font-family: Arial, Helvetica, sans-serif;}
           </div>
 </div>
 </div>
-</body>
+</body>*@
