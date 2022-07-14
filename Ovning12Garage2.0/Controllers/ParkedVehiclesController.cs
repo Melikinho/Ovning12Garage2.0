@@ -136,7 +136,7 @@ namespace Ovning12Garage2._0.Controllers
                 {
                     _context.Update(parkedVehicle);
                     await _context.SaveChangesAsync();
-					TempData["Message"] = "The vehicle data has been updated.";
+					TempData["Message"] = "The vehicle " + parkedVehicle.LicenseNumber.ToUpper() + " data has been updated.";
 				}
                 catch (DbUpdateConcurrencyException)
                 {
