@@ -17,26 +17,26 @@ namespace Ovning12Garage2._0.Controllers
         {
             return View();
         }
-        
-        public IActionResult Start()
-        {
-            return View();
-        }
-        
-        public IActionResult SearchVehicle()
-        {
-            return View();
-        }
+
+        //public IActionResult Start()
+        //{
+        //    return View();
+        //}
+
+        //public IActionResult SearchVehicle()
+        //{
+        //    return View();
+        //}
 
         public IActionResult Privacy()
         {
             return View();
         }
 
-        public IActionResult Receipt()
-        {
-            return View();
-        }
+        //public IActionResult Receipt()
+        //{
+        //    return View();
+        //}
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

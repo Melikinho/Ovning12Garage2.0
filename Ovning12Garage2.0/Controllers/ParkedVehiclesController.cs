@@ -188,10 +188,10 @@ namespace Ovning12Garage2._0.Controllers
 			vm.TimeOfDeparture = DateTime.Now;
 			vm.LicenseNumber = parkedVehicle.LicenseNumber;
             
-			if (parkedVehicle != null)
-            {
-                _context.ParkedVehicle.Remove(parkedVehicle);
-             }
+			//if (parkedVehicle != null)
+   //         {
+   //             _context.ParkedVehicle.Remove(parkedVehicle);
+   //          }
             
             await _context.SaveChangesAsync();
 
